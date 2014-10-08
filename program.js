@@ -1,14 +1,11 @@
-fs = require('fs')
+var mymodule = require('./mymodule.js')
+var fs = require('fs')
 
-var fileType = "." + process.argv[3]
+var callback = function(err, list) {
+	if (err) {
+		console.log("There seems to be an error")
+	}
+	console.log(list)
+}
 
-fs.readdir(process.argv[2], function (err, data) {
-  console.log(data)
-  arr = data
-  for (i = 0; i < arr.length; i++) {
-    var subArr = arr[i].substring(arr[i].length - (fileType.length + 1), arr.length[i]);
-    if (subArr == fileType) {
-      console.log(arr[i])
-    }
-  }
-});
+mymodule(process.argv[2],process.argv[3],callback);
