@@ -1,4 +1,4 @@
-fs = require('fs')
+cfs = require('fs')
 
 var fileType = "." + process.argv[3]
 
